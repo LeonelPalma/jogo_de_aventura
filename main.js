@@ -103,11 +103,6 @@ function validarEmail(email){
     return condicoes.test(email) /// Realiza um teste do email que é recebido por parâmetro e faz a verificacão se o mesmo é aceitável dentro das condições da variável condições, com isso, irá retornar o valor false ou true, onde é tratado da maneira correta dentro da função 'addData' 
 }
 
-function validarTelefone(phone){
-    var condicoes = /^\({0,1}[1-9]{2}\){0,1} {0,1}9 {0,1}[0-9]{4}-{0,1}[0-9]{4}$/; /// Utilizando regex, atribuio quais são os valores aceitaveis, onde esses são armazenados na variável condições
-    return condicoes.test(phone) /// Realiza um teste do email que é recebido por parâmetro e faz a verificacão se o mesmo é aceitável dentro das condições da variável condições, com isso, irá retornar o valor false ou true, onde é tratado da maneira correta dentro da função 'addData' 
-}
-
 function dataAtual(){ /// Lógica utilizada para sempre retornar a data do dia atualizado
     // Obtém a data/hora atual
     var data = new Date();
