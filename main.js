@@ -124,31 +124,6 @@ function dataAtual(){ /// Lógica utilizada para sempre retornar a data do dia a
     return result
 }
 
-function mask(inputEl){ /// Função que realiza 'preenchimento automatico' no momento que o utilizador inserir os dados relacionado ao seu telefone
-    var telefoneDigitado = inputEl.value
-
-    var telefone = telefoneDigitado.replace(/\D/g, "");
-    telefone = telefone.replace(/^0/, "");
-
-    if(telefone.length > 10){
-        telefone = telefone.replace(/^(\d\d)(\d{5})(\d{4}).*/, "($1) $2-$3");
-    }
-    else if(telefone.length > 5){
-        telefone = telefone.replace(/^(\d\d)(\d{4})(\d{0,4}).*/, "($1) $2-$3");
-    }
-
-    else if(telefone.length > 2){
-        telefone = telefone.replace(/^(\d\d)(\d{0,5})/, "($1) $2");
-    }
-    else{
-        telefone = telefone.replace(/^(\d*)/, "($1");
-    }
-
-    if(telefone != inputEl.value){
-        inputEl.value = telefone;
-    }
-}
-
 
 function formatPattern(str, pattern, format, example) {
     if(!str || !pattern || !format || !example)
