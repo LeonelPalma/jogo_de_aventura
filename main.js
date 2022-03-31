@@ -103,6 +103,11 @@ function validarEmail(email){
     return condicoes.test(email) /// Realiza um teste do email que é recebido por parâmetro e faz a verificacão se o mesmo é aceitável dentro das condições da variável condições, com isso, irá retornar o valor false ou true, onde é tratado da maneira correta dentro da função 'addData' 
 }
 
+function validarTelefone(phone){
+    var condicoes = /^\({0,1}[1-9]{2}\){0,1} {0,1}9 {0,1}[0-9]{4}-{0,1}[0-9]{4}$/; /// Utilizando regex, atribuio quais são os valores aceitaveis, onde esses são armazenados na variável condições
+    return condicoes.test(phone) /// Realiza um teste do telefone que é recebido por parâmetro e faz a verificacão se o mesmo é aceitável dentro das condições da variável condições, com isso, irá retornar o valor false ou true, onde é tratado da maneira correta dentro da função 'addData' 
+}
+
 function dataAtual(){ /// Lógica utilizada para sempre retornar a data do dia atualizado
     // Obtém a data/hora atual
     var data = new Date();
@@ -124,6 +129,30 @@ function dataAtual(){ /// Lógica utilizada para sempre retornar a data do dia a
     return result
 }
 
+function mask(inputEl){ /// Função que realiza 'preenchimento automatico' no momento que o utilizador inserir os dados relacionado ao seu telefone
+    var telefoneDigitado = inputEl.value
+
+    var telefone = telefoneDigitado.replace(/\D/g, "");
+    telefone = telefone.replace(/^0/, "");
+
+    if(telefone.length > 10){
+        telefone = telefone.replace(/^(\d\d)(\d{5})(\d{4}).*/, "($1) $2-$3");
+    }
+    else if(telefone.length > 5){
+        telefone = telefone.replace(/^(\d\d)(\d{4})(\d{0,4}).*/, "($1) $2-$3");
+    }
+
+    else if(telefone.length > 2){
+        telefone = telefone.replace(/^(\d\d)(\d{0,5})/, "($1) $2");
+    }
+    else{
+        telefone = telefone.replace(/^(\d*)/, "($1");
+    }
+
+    if(telefone != inputEl.value){
+        inputEl.value = telefone;
+    }
+}
 
 function formatPattern(str, pattern, format, example) {
     if(!str || !pattern || !format || !example)
