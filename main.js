@@ -61,7 +61,7 @@ function addData(userEl, emailEl, phoneEl, dateEl, sexEl){
 
     console.log(dateEl.value)
 
-    cellDate.innerHTML = new Date(dateEl.value).toLocaleDateString('pt-br', {timeZone: 'UTC'}) /// Realiza a troca da data do padrão yyyy-mm-dd para o padrão português dd/mm/yyyy
+    cellDate.innerHTML = new Date(dateEl.value).toLocaleDateString('en', {timeZone: 'UTC'}) /// Realiza a troca da data do padrão yyyy-mm-dd para o padrão português dd/mm/yyyy
     /// OBS: {timeZone: 'UTC'} = https://stackoverflow.com/questions/32877278/tolocaledatestring-is-subtracting-a-day/32877402
 
     Null.setAttribute('onclick', `cleanData(this)`) /// Atribui esse atributo ao "Null", que será o conteudo na linha 33
@@ -104,7 +104,7 @@ function validarEmail(email){
 }
 
 function validarTelefone(phone){
-    var condicoes = /^\({0,1}[1-9]{2}\){0,1} {0,1}9 {0,1}[0-9]{4}-{0,1}[0-9]{4}$/; /// Utilizando regex, atribuio quais são os valores aceitaveis, onde esses são armazenados na variável condições
+    var condicoes = /^\({+}[1-9]{3}\){0,1}[0-9]{3}-{0,1}[0-9]{3}-{0,1}[0-9]{3}$/; /// Utilizando regex, atribuio quais são os valores aceitaveis, onde esses são armazenados na variável condições
     return condicoes.test(phone) /// Realiza um teste do telefone que é recebido por parâmetro e faz a verificacão se o mesmo é aceitável dentro das condições da variável condições, com isso, irá retornar o valor false ou true, onde é tratado da maneira correta dentro da função 'addData' 
 }
 
@@ -135,14 +135,14 @@ function mask(inputEl){ /// Função que realiza 'preenchimento automatico' no m
     var telefone = telefoneDigitado.replace(/\D/g, "");
     telefone = telefone.replace(/^0/, "");
 
-    if(telefone.length > 10){
-        telefone = telefone.replace(/^(\d\d)(\d{5})(\d{4}).*/, "($1) $2-$3");
+    if(telefone.length > 9){
+        telefone = telefone.replace(/^(\d\d)(\d{3})(\d{3})(\d{3}).*/, "($1) $2-$3");
     }
-    else if(telefone.length > 5){
-        telefone = telefone.replace(/^(\d\d)(\d{4})(\d{0,4}).*/, "($1) $2-$3");
+    else if(telefone.length > 4){
+        telefone = telefone.replace(/^(\d\d)(\d{3})(\d{0,4}).*/, "($1) $2-$3");
     }
 
-    else if(telefone.length > 2){
+    else if(telefone.length > 3){
         telefone = telefone.replace(/^(\d\d)(\d{0,5})/, "($1) $2");
     }
     else{
