@@ -32,13 +32,13 @@ function addData(userEl, emailEl, phoneEl, dateEl, sexEl){
             return
         }
     }
-    /*
+    
     var validar_Telefone = validarTelefone(phoneEl.value) /// A variável recebe um valor da função que valida o telefone
     if(validar_Telefone == false){ /// Caso retorno falso, significa que o telefone é invalido, sendo assim, informa ao utilizador para que seja feita a correção
         alert('The phone entered is invalid, check and try again.')
         return
     }
-    */
+    
     var quantidadeLinhas = tabela.rows.length /// Verifico a quantidade de linhas usando o row.length
     var linha = tabela.insertRow(quantidadeLinhas) /// Insiro uma linha ao chamar a função
     // linha.addEventListener('click', excluirDado)
@@ -104,7 +104,7 @@ function validarEmail(email){
 }
 /*
 function validarTelefone(phone){
-    var condicoes = /^\({+}[1-9]{3}\){0,1}[0-9]{3}-{0,1}[0-9]{3}-{0,1}[0-9]{3}$/; /// Utilizando regex, atribuio quais são os valores aceitaveis, onde esses são armazenados na variável condições
+    var condicoes = /^\{0,1}[0-9]{3}-{0,1}[0-9]{3}-{0,1}[0-9]{3}$/; /// Utilizando regex, atribuio quais são os valores aceitaveis, onde esses são armazenados na variável condições
     return condicoes.test(phone) /// Realiza um teste do telefone que é recebido por parâmetro e faz a verificacão se o mesmo é aceitável dentro das condições da variável condições, com isso, irá retornar o valor false ou true, onde é tratado da maneira correta dentro da função 'addData' 
 }
 */
