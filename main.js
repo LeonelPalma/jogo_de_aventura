@@ -32,13 +32,13 @@ function addData(userEl, emailEl, phoneEl, dateEl, sexEl){
             return
         }
     }
-
+    /*
     var validar_Telefone = validarTelefone(phoneEl.value) /// A variável recebe um valor da função que valida o telefone
     if(validar_Telefone == false){ /// Caso retorno falso, significa que o telefone é invalido, sendo assim, informa ao utilizador para que seja feita a correção
         alert('The phone entered is invalid, check and try again.')
         return
     }
-
+    */
     var quantidadeLinhas = tabela.rows.length /// Verifico a quantidade de linhas usando o row.length
     var linha = tabela.insertRow(quantidadeLinhas) /// Insiro uma linha ao chamar a função
     // linha.addEventListener('click', excluirDado)
@@ -102,12 +102,12 @@ function validarEmail(email){
     var condicoes = /^[_a-z0-9-]+(\.[_a-z0-9-]+)*@[a-z0-9-]+(\.[a-z0-9-]+)*(\.[a-z]{2,4})$/; /// Utilizando regex, atribuio quais são os valores aceitaveis, onde esses são armazenados na variável condições
     return condicoes.test(email) /// Realiza um teste do email que é recebido por parâmetro e faz a verificacão se o mesmo é aceitável dentro das condições da variável condições, com isso, irá retornar o valor false ou true, onde é tratado da maneira correta dentro da função 'addData' 
 }
-
+/*
 function validarTelefone(phone){
     var condicoes = /^\({+}[1-9]{3}\){0,1}[0-9]{3}-{0,1}[0-9]{3}-{0,1}[0-9]{3}$/; /// Utilizando regex, atribuio quais são os valores aceitaveis, onde esses são armazenados na variável condições
     return condicoes.test(phone) /// Realiza um teste do telefone que é recebido por parâmetro e faz a verificacão se o mesmo é aceitável dentro das condições da variável condições, com isso, irá retornar o valor false ou true, onde é tratado da maneira correta dentro da função 'addData' 
 }
-
+*/
 function dataAtual(){ /// Lógica utilizada para sempre retornar a data do dia atualizado
     // Obtém a data/hora atual
     var data = new Date();
@@ -128,7 +128,7 @@ function dataAtual(){ /// Lógica utilizada para sempre retornar a data do dia a
 
     return result
 }
-
+/*
 function mask(inputEl){ /// Função que realiza 'preenchimento automatico' no momento que o utilizador inserir os dados relacionado ao seu telefone
     var telefoneDigitado = inputEl.value
 
@@ -184,3 +184,4 @@ function applyMaskTel({target:inputEl, data:lastChar}) {
         inputEl.selectionStart = inputEl.value.length
     }
 }
+*/
